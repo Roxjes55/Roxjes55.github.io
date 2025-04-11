@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Денис Пустовитовский | Manual QA Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --gray: #95a5a6;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 24px;
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-style: italic;
+            color: var(--dark);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-img img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--light);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-category h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-item i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--white);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+        
+        .project-content {
+            padding: 30px;
+        }
+        
+        .project-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .project-content p {
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+        }
+        
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-content p {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        .contact-info {
+            margin-bottom: 40px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero h2 {
+                font-size: 20px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Денис Пустовитовский</div>
+                <ul class="nav-links">
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#skills">Навыки</a></li>
+                    <li><a href="#projects">Проекты</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Денис Пустовитовский</h1>
+                <h2>Manual QA Engineer</h2>
+                <p>"Качество — это не случайность, а результат продуманных действий."</p>
+                <a href="#contact" class="btn">Связаться</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Обо мне</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <!-- Замените на путь к вашему фото -->
+                    <img src="photo.jpg" alt="Денис Пустовитовский">
+                </div>
+                <div class="about-text">
+                    <h3>Привет, я Денис.</h3>
+                    <p>Я специализируюсь на ручном тестировании веб- и мобильных приложений. Мой подход — это:</p>
+                    <p>- <strong>Внимание к деталям</strong> (не пропущу даже мелкий баг),</p>
+                    <p>- <strong>Четкая документация</strong> (тест-кейсы, баг-репорты, которые понятны разработчикам),</p>
+                    <p>- <strong>Понимание бизнес-логики</strong> (тестирую не просто код, а ценность для пользователя).</p>
+                    <p>Верю, что хороший тестировщик — это не просто «ищет ошибки», а помогает создавать продукты лучше.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Навыки</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Тестирование</h3>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Функциональное тестирование
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Регрессионное тестирование
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> UX/UI тестирование
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Составление тест-кейсов
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Mind maps для тестирования
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Инструменты</h3>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Jira, Trello
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> TestRail
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Postman (API тестирование)
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Chrome DevTools
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Git (базовые команды)
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Технические навыки</h3>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Основы SQL (SELECT, JOIN)
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Чтение логов
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Понимание клиент-серверной архитектуры
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Мобильное тестирование (Android/iOS)
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-check"></i> Тестирование API
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Проекты</h2>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <h3>FinTech веб-приложение</h3>
+                    </div>
+                    <div class="project-content">
+                        <h3>FinTech веб-приложение</h3>
+                        <p>Провел полное тестирование личного кабинета, включая функционал платежей и переводов. Нашел 10+ критических багов в финансовых операциях.</p>
+                        <p>Подготовил подробные отчеты для команды разработки с четкими шагами воспроизведения.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <h3>Мобильное приложение для логистики</h3>
+                    </div>
+                    <div class="project-content">
+                        <h3>Мобильное приложение для логистики</h3>
+                        <p>Протестировал приложение на 5+ устройствах (Android/iOS), включая проверку работы в оффлайн-режиме.</p>
+                        <p>Улучшил документацию тест-кейсов, что сократило время тестирования новых версий на 20%.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <h3>CRM система</h3>
+                    </div>
+                    <div class="project-content">
+                        <h3>CRM система</h3>
+                        <p>Провел регрессионное тестирование после крупного обновления интерфейса. Составил чек-листы для smoke-тестирования.</p>
+                        <p>Выявил проблемы с отображением данных в разных браузерах, что улучшило UX для клиентов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Контакты</h2>
+            </div>
+            <div class="contact-content">
+                <p>Готов к новым вызовам в QA. Пишите — обсудим ваш проект!</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +7 916 889-90-44</p>
+                    <p><i class="fas fa-envelope"></i> pustovitovskiy.d@gmail.com</p>
+                </div>
+                <div class="contact-links">
+                    <a href="https://t.me/Denis_pustov" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
+                    <a href="resume.pdf" class="btn"><i class="fas fa-download"></i> Резюме</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p>&copy; 2024 Денис Пустовитовский | Manual QA Engineer</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
